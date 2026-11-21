@@ -1,4 +1,4 @@
-import YearRange from './YearRange'
+﻿import YearRange from './YearRange'
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import {
@@ -170,7 +170,7 @@ function Sidebar({
       )}
       <aside className={'sidebar ' + (open ? 'open' : '')}>
         <div className="brand">
-          <img src="/favicon.svg" alt="" />
+          <img src={import.meta.env.BASE_URL + "favicon.svg"} alt="" />
           <div>
             <b>
               Supermart<span>IQ</span>
@@ -262,7 +262,7 @@ function Dashboard({ all }: { all: Row[] }) {
     window.scrollTo(0, 0)
     setPopover(null)
     setMenu(false)
-    document.title = current.label + ' · Supermart IQ'
+    document.title = current.label + ' Â· Supermart IQ'
   }, [pathname, current])
   useEffect(() => {
     if (!popover && !menu) return
@@ -300,8 +300,8 @@ function Dashboard({ all }: { all: Row[] }) {
   const lastMonth = (f.end || end).slice(0, 7)
   const monthLabel = (period: string) => new Date(period + '-01T00:00:00Z').toLocaleDateString('en-GB', {month:'short',year:'numeric',timeZone:'UTC'})
   const rangeLabel = firstMonth.endsWith('-01') && lastMonth.endsWith('-12')
-    ? (fromYear === throughYear ? fromYear : fromYear + '–' + throughYear)
-    : firstMonth === lastMonth ? monthLabel(firstMonth) : monthLabel(firstMonth) + ' – ' + monthLabel(lastMonth)
+    ? (fromYear === throughYear ? fromYear : fromYear + 'â€“' + throughYear)
+    : firstMonth === lastMonth ? monthLabel(firstMonth) : monthLabel(firstMonth) + ' â€“ ' + monthLabel(lastMonth)
   const hasYearFilter = Boolean(f.start || f.end)
   const activeDimensions = dimensions.filter((key) => f[key])
   const activeCount = activeDimensions.length + Number(hasYearFilter)
@@ -477,7 +477,7 @@ function Dashboard({ all }: { all: Row[] }) {
             <div>
               <div className="period-label">
                 <span className="period-line" />
-                {dateLabel(f.start || start)} – {dateLabel(f.end || end)}
+                {dateLabel(f.start || start)} â€“ {dateLabel(f.end || end)}
               </div>
               <h1>{current.label}</h1>
               <p>{current.subtitle}</p>
@@ -499,7 +499,7 @@ function Dashboard({ all }: { all: Row[] }) {
                   onClick={resetYears}
                   aria-label="Remove year range filter"
                 >
-                  Year range · {rangeLabel}
+                  Year range Â· {rangeLabel}
                   <X size={12} />
                 </button>
               )}
@@ -509,7 +509,7 @@ function Dashboard({ all }: { all: Row[] }) {
                   onClick={() => update(key, '')}
                   aria-label={'Remove ' + key + ' filter'}
                 >
-                  {labels[key]} · {f[key]}
+                  {labels[key]} Â· {f[key]}
                   <X size={12} />
                 </button>
               ))}
@@ -518,7 +518,7 @@ function Dashboard({ all }: { all: Row[] }) {
               </button>
             </div>
           )}
-          <Suspense fallback={<div className="empty">Loading view…</div>}>
+          <Suspense fallback={<div className="empty">Loading viewâ€¦</div>}>
             {!rows.length && pathname !== '/about' ? (
               <Empty reset={reset} />
             ) : (
@@ -549,7 +549,7 @@ function Dashboard({ all }: { all: Row[] }) {
           <footer className="page-footer">
             <span>Supermart IQ</span>
             <span>
-              {number(rows.length)} of {number(all.length)} records · INR
+              {number(rows.length)} of {number(all.length)} records Â· INR
             </span>
           </footer>
         </main>
@@ -593,9 +593,10 @@ export default function App() {
   if (!rows)
     return (
       <div className="empty" role="status">
-        <img src="/favicon.svg" width="42" alt="" />
-        <h2>Loading grocery sales…</h2>
+        <img src={import.meta.env.BASE_URL + "favicon.svg"} width="42" alt="" />
+        <h2>Loading grocery salesâ€¦</h2>
       </div>
     )
   return <Dashboard all={rows} />
 }
+
