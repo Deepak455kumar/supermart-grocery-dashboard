@@ -1,0 +1,82 @@
+{
+  "sourceFile": "Supermart Grocery Sales - Retail Analytics Dataset.csv",
+  "sourceSha256": "3963521ae14ff1cd3844ca44c974ef644e51ae696a5442d9eb55edda3255c31f",
+  "originalRows": 9994,
+  "missingValues": {
+    "Order ID": 0,
+    "Customer Name": 0,
+    "Category": 0,
+    "Sub Category": 0,
+    "City": 0,
+    "Order Date": 0,
+    "Region": 0,
+    "Sales": 0,
+    "Discount": 0,
+    "Profit": 0,
+    "State": 0
+  },
+  "distinctValues": {
+    "Order ID": 9994,
+    "Customer Name": 50,
+    "Category": 7,
+    "Sub Category": 23,
+    "City": 24,
+    "Order Date": 1236,
+    "Region": 5,
+    "Sales": 1989,
+    "Discount": 26,
+    "Profit": 8380,
+    "State": 1
+  },
+  "trimmedCells": 0,
+  "duplicateRows": 0,
+  "duplicateOrderIds": 0,
+  "invalidDates": 0,
+  "dateFormats": {
+    "dayFirstHyphens": 4042,
+    "monthFirstSlashes": 5952
+  },
+  "invalidNumeric": {
+    "Sales": 0,
+    "Profit": 0,
+    "Discount": 0
+  },
+  "negativeSales": 0,
+  "negativeProfits": 0,
+  "invalidDiscounts": 0,
+  "dateMin": "2015-01-02",
+  "dateMax": "2018-12-30",
+  "ambiguousHyphenDates": 4042,
+  "slashDayMin": 13,
+  "slashDayMax": 31,
+  "labelVariantGroups": {
+    "Category": 0,
+    "Sub Category": 0,
+    "City": 0,
+    "Region": 0,
+    "State": 0
+  },
+  "subcategoriesInMultipleCategories": 0,
+  "citiesInMultipleStates": 0,
+  "citiesInMultipleRegions": 24,
+  "regions": {
+    "Central": 2323,
+    "East": 2848,
+    "North": 1,
+    "South": 1619,
+    "West": 3203
+  },
+  "states": [
+    "Tamil Nadu"
+  ],
+  "overall": {
+    "rows": 9994,
+    "sales": 14956982.0,
+    "profit": 3747121.2,
+    "orders": 9994,
+    "margin": 0.25052655676125035,
+    "aov": 1496.5961576946167,
+    "discount": 0.22681709025415253
+  },
+  "finalRows": 9994
+}

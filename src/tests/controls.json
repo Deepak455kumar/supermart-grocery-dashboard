@@ -1,0 +1,71 @@
+{
+  "overall": {
+    "rows": 9994,
+    "sales": 14956982.0,
+    "profit": 3747121.2,
+    "orders": 9994,
+    "margin": 0.25052655676125035,
+    "aov": 1496.5961576946167,
+    "discount": 0.22681709025415253
+  },
+  "slices": [
+    {
+      "filters": {
+        "category": "Beverages"
+      },
+      "expected": {
+        "rows": 1400,
+        "sales": 2085313.0,
+        "profit": 525605.76,
+        "orders": 1400,
+        "margin": 0.2520512556148645,
+        "aov": 1489.5092857142856,
+        "discount": 0.23032857142857147
+      }
+    },
+    {
+      "filters": {
+        "region": "South"
+      },
+      "expected": {
+        "rows": 1619,
+        "sales": 2440461.0,
+        "profit": 623562.89,
+        "orders": 1619,
+        "margin": 0.25551028678598015,
+        "aov": 1507.3878937615812,
+        "discount": 0.22677578752316244
+      }
+    },
+    {
+      "filters": {
+        "category": "Beverages",
+        "region": "South"
+      },
+      "expected": {
+        "rows": 227,
+        "sales": 344666.0,
+        "profit": 84058.78,
+        "orders": 227,
+        "margin": 0.24388474639215937,
+        "aov": 1518.352422907489,
+        "discount": 0.23193832599118946
+      }
+    },
+    {
+      "filters": {
+        "from": "2015-01-01",
+        "to": "2015-01-31"
+      },
+      "expected": {
+        "rows": 131,
+        "sales": 203014.0,
+        "profit": 54689.18,
+        "orders": 131,
+        "margin": 0.2693862492241914,
+        "aov": 1549.7251908396947,
+        "discount": 0.2283206106870229
+      }
+    }
+  ]
+}
