@@ -58,35 +58,6 @@ The finest product dimension is subcategory. All 24 cities occur in multiple sou
 
 Customer names are replaced before export with consistent aliases. The explorer hides that column by default. Published static assets expose every processed transaction, including order IDs and linkable aliases. Confirm the dataset’s redistribution rights and acceptable disclosure before publishing. The private CSV and alias mapping are excluded from the project.
 
-## Run locally
-
-Use Node.js 22.12+ or 24 with npm. The checked-in JSON and locally bundled fonts allow the installed app to run without an API key or backend.
-
-```sh
-npm ci
-npm run dev
-```
-
-Open the local address printed by Vite. To test and serve the production build, run the following in the project directory.
-
-```sh
-npm test
-npm run build
-npm run preview
-```
-
-## Reprocess the private CSV
-
-Python is required only to refresh data or run preprocessing tests. Create a virtual environment if desired, then pass the path to your original CSV.
-
-```sh
-python -m pip install -r requirements.txt
-python scripts/preprocess.py "/path/to/Supermart Grocery Sales - Retail Analytics Dataset.csv"
-python -m unittest discover -s scripts -p "test_*.py"
-npm test
-```
-
-The script validates headers, missing values, numeric ranges, duplicate rows and IDs, dates, classification variants and geographic relationships. It writes normalized JSON, the audit and independent Pandas control totals for the full source and four slices. Source rows retain their input order. See [the audit](docs/DATA_AUDIT.md) for the source fingerprint and checks.
 
 ## Stack and structure
 
@@ -107,28 +78,6 @@ docs/                Data dictionary, audit and real browser screenshots
 vercel.json          Production build and client-side routing
 ```
 
-## Publish the source to GitHub
-
-From a fresh copy of this project, create an empty GitHub repository and copy its remote URL. Review the staged files before committing. The ignore file excludes raw CSVs, local dependencies, generated builds, environment files and local Vercel state.
-
-```sh
-git init -b main
-git add .
-git status
-git commit -m "Add Supermart grocery sales analytics dashboard"
-git remote add origin YOUR_REPOSITORY_URL
-git push -u origin main
-```
-
-Replace `YOUR_REPOSITORY_URL` with your GitHub remote. [GitHub’s local repository guide](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
-
-## Deploy to Vercel
-
-1. Import the GitHub repository into a new Vercel project. Select the directory containing `package.json` as its root.
-2. Choose **Vite**, use `npm ci` for installation, `npm run build` for the build and `dist` as the output directory. The validated JSON is bundled with the static site. No environment variables or Python build step are required.
-3. Deploy, then open the overview and refresh a nested route such as `/geography`. Check a filtered total against the audit. The included rewrite serves the app on direct navigation.
-
-[Vercel’s Vite deployment guide](https://vercel.com/docs/frameworks/frontend/vite)
 
 ## Verification and future work
 
